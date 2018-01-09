@@ -1,8 +1,26 @@
 #pragma once
+#include "API.h"
+
+class Motor {
+public:
+  Motor(unsigned char port, bool reversed = false):
+    port(port),
+    reversed(reversed),
+    encoder(NULL) {}
+
+private:
+  unsigned char port;
+  bool reversed;
+  Encoder encoder;
+};
 
 class Robot {
 public:
+  void driveForward(int power, float dist);
 private:
+  float wheelDiameter;
+  float cmPerEnc;
+
 };
 
 extern Robot robot;
