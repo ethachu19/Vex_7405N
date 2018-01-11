@@ -1,18 +1,6 @@
 #pragma once
 #include "API.h"
-
-class Motor {
-public:
-  Motor(unsigned char port, bool reversed = false):
-    port(port),
-    reversed(reversed),
-    encoder(NULL) {}
-
-private:
-  unsigned char port;
-  bool reversed;
-  Encoder encoder;
-};
+#include "io.hpp"
 
 class Robot {
 public:
