@@ -28,12 +28,11 @@ public:
   int getPosition();
   void resetEncoder();
   void shutdown();
-
-  Encoder enc;
 private:
   unsigned char topPort;
   unsigned char bottomPort;
   bool reversed;
+  Encoder enc;
 };
 
 class InternalMotorEncoder : public MotorEncoder
