@@ -1,6 +1,10 @@
 #pragma once
 #include "API.h"
-#include "io.hpp"
+#include "../backend/io.hpp"
+#include "../backend/motor.hpp"
+#include "../backend/sensors.hpp"
+#include "../backend/userInterface.hpp"
+#include "../backend/utils.hpp"
 
 class Robot {
 public:

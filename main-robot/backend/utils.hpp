@@ -12,3 +12,9 @@ private:
   bool reverseI;
   float lastP;
 };
+
+class Thread
+{
+public:
+private:
+};
