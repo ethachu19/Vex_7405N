@@ -1,3 +1,5 @@
+#include "API.h"
+
 class Motor
 {
 public:
@@ -12,8 +14,10 @@ private:
 class MotorEncoder
 {
 public:
+  virtual void initialize() = 0;
   virtual int getPosition() = 0;
   virtual void resetEncoder() = 0;
+  virtual void shutdown() = 0;
 };
 
 class QuadratureEncoder : public MotorEncoder
@@ -21,6 +25,11 @@ class QuadratureEncoder : public MotorEncoder
 public:
   QuadratureEncoder(unsigned char topPort, unsigned char bottomPort, bool reversed = false);
   void initialize();
+  int getPosition();
+  void resetEncoder();
+  void shutdown();
+
+  Encoder enc;
 private:
   unsigned char topPort;
   unsigned char bottomPort;
@@ -32,10 +41,19 @@ class InternalMotorEncoder : public MotorEncoder
 public:
   InternalMotorEncoder(unsigned char address, float countsPerRev, bool reversed = false);
   void initialize();
-  void getVelocity();
+  int getPosition();
+  float getPositionRev();
+  int getVelocity();
+  void resetEncoder();
+  void shutdown();
+  bool isRunning();
 private:
+  static void initializeAll();
+  static void shutdownAll();
   unsigned char address;
-  bool reversed;
-  int offset;
   float countsPerRev;
+  bool reversed;
+  bool running;
+  static bool initialized;
+  static int totalIMEs;
 };
