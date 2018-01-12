@@ -11,6 +11,7 @@
  */
 
 #include "main.h"
+#include "robot.hpp"
 
 
 /*
@@ -38,4 +39,8 @@ void initializeIO() {
  * can be implemented in this task if desired.
  */
 void initialize() {
+  chainbarPot.initialize();
+  leftLiftPot.initialize();
+  rightLiftPot.initialize();
+  gyro.initialize();
 }
