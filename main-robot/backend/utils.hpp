@@ -1,3 +1,6 @@
+#ifndef __UTILS_H__
+#define __UTILS_H__
+
 class PIDController {
 public:
   PIDController(float kP, float kI, float kD, float target, float threshold = 0, bool reverseI = false);
@@ -18,3 +21,5 @@ class Thread
 public:
 private:
 };
+
+#endif

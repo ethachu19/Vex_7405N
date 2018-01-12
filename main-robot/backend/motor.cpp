@@ -10,12 +10,34 @@ Motor::Motor(unsigned char port, bool reversed)
 
 void Motor::setPower(int speed)
 {
-  motorSet(port, speed);
+  motorSet(port, reversed ? speed * -1 : speed);
 }
 
 int Motor::getPower()
 {
-  return motorGet(port);
+  int power = motorGet(port);
+  return reversed ? power * -1 : power;
+}
+
+////////////////////////////////////////////////////////////////////////////
+// SYNCEDMOTORS CLASS
+////////////////////////////////////////////////////////////////////////////
+
+SyncedMotors::SyncedMotors(Motor master, Motor slave)
+  : master(master)
+  , slaves(slave)
+{
+}
+
+void SyncedMotors::setPower(int speed)
+{
+  master.setPower(speed);
+  slaves.setPower(speed);
+}
+
+int SyncedMotors::getPower()
+{
+  return master.getPower();
 }
 
 ////////////////////////////////////////////////////////////////////////////

@@ -1,3 +1,6 @@
+#ifndef __SENSORS_H__
+#define __SENSORS_H__
+
 #include "io.hpp"
 #include "API.h"
 
@@ -48,3 +51,5 @@ private:
   unsigned char orangePort;
   unsigned char yellowPort;
 };
+
+#endif

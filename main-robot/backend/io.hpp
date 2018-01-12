@@ -1,10 +1,11 @@
-#pragma once
+#ifndef __IO_H__
+#define __IO_H__
 
 class AnalogInput
 {
 public:
   AnalogInput(unsigned char port);
-  void initialiaze();
+  void initialize();
   void calibrate();
   int getRawValue();
   int getCalibratedValue();
@@ -33,3 +34,5 @@ public:
 private:
   unsigned char port;
 };
+
+#endif

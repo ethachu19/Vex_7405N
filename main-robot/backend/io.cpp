@@ -8,7 +8,7 @@ AnalogInput::AnalogInput(unsigned char port)
   : port(port)
   {}
 
-void AnalogInput::initialiaze()
+void AnalogInput::initialize()
 {
   pinMode(port, INPUT_ANALOG);
 }

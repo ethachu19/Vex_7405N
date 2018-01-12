@@ -1,3 +1,6 @@
+#ifndef __USERINTERFACE_H__
+#define __USERINTERFACE_H__
+
 class JoystickController
 {
 public:
@@ -9,3 +12,5 @@ class LCD
 public:
 private:
 };
+
+#endif

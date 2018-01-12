@@ -1,4 +1,7 @@
+#ifndef __MOTOR_H__
+#define __MOTOR_H__
 #include "API.h"
+#include <vector>
 
 class Motor
 {
@@ -9,6 +12,17 @@ public:
 private:
   unsigned char port;
   bool reversed;
+};
+
+class SyncedMotors
+{
+public:
+  SyncedMotors(Motor master, Motor slave);
+  void setPower(int speed);
+  int getPower();
+private:
+  Motor master;
+  Motor slaves;
 };
 
 class MotorEncoder
@@ -56,3 +70,5 @@ private:
   static bool initialized;
   static int totalIMEs;
 };
+
+#endif
